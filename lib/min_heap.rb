@@ -17,7 +17,10 @@ class MinHeap
   # Time Complexity: ?
   # Space Complexity: ?
   def add(key, value = key)
-    
+    @store << HeapNode.new(key, value)
+
+    last_index = @store.length - 1
+    heap_up(last_index)
   end
 
   # This method removes and returns an element from the heap
@@ -85,7 +88,7 @@ class MinHeap
     return if @store[index].key < @store[low_index].key
     
     swap(index, low_index)
-    
+
     heap_down(low_index)
   end
 
