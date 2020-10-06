@@ -1,8 +1,19 @@
 
 
 # This method uses a heap to sort an array.
-# Time Complexity:  ?
-# Space Complexity: ?
+# Time Complexity:  o(nlog n)
+# Space Complexity: O(n)
 def heapsort(list)
-  raise NotImplementedError, "Method not implemented yet..."
+  heap = MinHeap.new
+  list.each do |n|
+    heap.add(n)
+  end
+
+  i = 0
+  while i < list.length
+    list[i] = heap.remove
+    i += 1
+  end
+
+  return list
 end
